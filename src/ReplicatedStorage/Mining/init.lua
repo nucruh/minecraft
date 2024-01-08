@@ -10,7 +10,7 @@ local active_mining_block = nil
 local active_block_break_time = 0
 local break_time_progress = 0
 local highlighted_object = nil
-local ray_distance = 15.5
+local ray_distance = 16
 
 local filter = {workspace.Chunks}
 
@@ -54,7 +54,7 @@ function destroy_block(_, state)
     print(highlighted_object.Parent.Name)
 
     -- not sure if i can use table.remove() for this?
-    table.remove(_G.game_chunks[chunk_coords], block_coords)
+    _G.game_chunks[chunk_coords][block_coords] = nil
 
 end
 
