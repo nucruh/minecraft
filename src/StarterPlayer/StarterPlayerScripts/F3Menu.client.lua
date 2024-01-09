@@ -31,6 +31,8 @@ local function update(delta_time)
 
     if target then
         local split = string.split(target.Name, '@')
+        if not split[2] or not split[1] then return end
+
         local target_name = split[1]
         local target_location = string.split(split[2], ' ')
 
