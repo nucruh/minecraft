@@ -30,10 +30,13 @@ local function update(delta_time)
     local target = mouse.Target
 
     if target then
-        if tags[target.Name] then
-            local target_position = target.Position / 3
+        local split = string.split(target.Name, '@')
+        local target_name = split[1]
+        local target_location = string.split(split[2], ' ')
 
-            f3_menu.Right.TargetedBlock.Text = 'BLOCK: '..target_position.X..', '..target_position.Y..', '..target_position.Z
+        if tags[target_name] then
+
+            f3_menu.Right.TargetedBlock.Text = 'BLOCK: '..target_location[1]..', '..target_location[2]..', '..target_location[3]
         end
     end
 
